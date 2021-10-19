@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const sauceSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
   //schéma de données mise à dispo par mongoose
   //Pas besoin de mettre un champ pour l'Id puisqu'il est automatiquement généré par Mongoose
   name: { type: String, required: true },
@@ -16,4 +16,4 @@ const sauceSchema = mongoose.Schema({
   usersDisliked: { type: [String], default: [] },
 });
 
-module.exports = mongoose.model("Sauce", sauceSchema); //En l'exportant nous le rendons dispo pour l'application express
+module.exports = mongoose.model("Post", postSchema); //En l'exportant nous le rendons dispo pour l'application express

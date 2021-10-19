@@ -3,7 +3,7 @@ const bodyParser = require("body-parser"); //pour extraire l'objet JSON de la de
 const mongoose = require("mongoose"); //pour stocker des données
 const path = require("path"); //chemin du server
 
-const sauceRoutes = require("./routes/sauce");
+const postRoutes = require("./routes/post");
 const userRoutes = require("./routes/user");
 
 mongoose
@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 //indiquer à notre app.js comment traiter les requêtes vers la route /image , en rendant notre dossier images statique
 
-app.use("/api/sauces", sauceRoutes);
+app.use("/api/Posts", postRoutes);
 app.use("/api/auth", userRoutes);
 
 module.exports = app;
