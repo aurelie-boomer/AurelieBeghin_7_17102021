@@ -1,18 +1,9 @@
 const express = require("express"); //pour gérer les requêtes http
 const bodyParser = require("body-parser"); //pour extraire l'objet JSON de la demande. Il nous faudra le package body-parser
-const mongoose = require("mongoose"); //pour stocker des données
 const path = require("path"); //chemin du server
 
-const postRoutes = require("./routes/post");
+//const postRoutes = require("./routes/post");
 const userRoutes = require("./routes/user");
-
-mongoose
-  .connect(
-    "mongodb+srv://aurelie_boomer:Chouchou13430.@cluster0.hsb46.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true } //connection de l'API au cluster
-  )
-  .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch(() => console.log("Connexion à MongoDB échouée !"));
 
 const app = express();
 //
@@ -38,7 +29,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 //indiquer à notre app.js comment traiter les requêtes vers la route /image , en rendant notre dossier images statique
 
-app.use("/api/Posts", postRoutes);
-app.use("/api/auth", userRoutes);
+//app.use("/api/Posts", postRoutes);
+app.use("/api/users", userRoutes);
 
 module.exports = app;
